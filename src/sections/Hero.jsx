@@ -9,6 +9,7 @@ import { HiArrowDown, HiExternalLink, HiMail } from 'react-icons/hi';
 import { profile } from '../data/portfolio';
 import { useMouseParallax } from '../hooks/useMouseParallax';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { scrollToSection } from '../utils/scrollTo';
 
 const HeroScene = lazy(() => import('../three/HeroScene'));
 
@@ -209,7 +210,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => scrollToSection('projects')}
                 className="btn-primary"
               >
                 <HiExternalLink size={17} /> View Projects
@@ -217,7 +218,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => scrollToSection('contact')}
                 className="btn-outline"
               >
                 <HiMail size={17} /> Contact Me
@@ -236,7 +237,7 @@ export default function Hero() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-default select-none"
           aria-hidden="true"
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => scrollToSection('about')}
           style={{ cursor: 'pointer' }}
         >
           <span className="text-[10px] tracking-[0.2em] uppercase"

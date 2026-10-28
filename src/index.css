@@ -34,7 +34,9 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  /* Native smooth scroll as fallback (Lenis overrides this) */
+  /* CSS smooth scroll — works perfectly with window.scrollTo({ behavior:'smooth' })
+     and is not overridden by any JS library. Mouse wheel / trackpad scroll is
+     100% native — no inertia, no momentum, no hijacking. */
   scroll-behavior: smooth;
 }
 

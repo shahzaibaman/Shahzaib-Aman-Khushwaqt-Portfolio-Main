@@ -8,6 +8,7 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import { contact, profile } from '../data/portfolio';
 import SectionHeader from '../components/SectionHeader';
+import { scrollToSection } from '../utils/scrollTo';
 
 const CONTACT_ITEMS = [
   {
@@ -56,7 +57,7 @@ const NAV_LINKS_FOOTER = ['Home', 'About', 'Education', 'Skills', 'Projects', 'E
 
 export default function Contact() {
   const handleNavClick = (section) => {
-    document.getElementById(section.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection(section.toLowerCase());
   };
 
   return (

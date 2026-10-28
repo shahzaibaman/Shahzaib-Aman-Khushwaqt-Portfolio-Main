@@ -1,9 +1,10 @@
 /**
- * App.jsx — Root component. Wires loading screen, Lenis, noise overlay, cursor, sections.
+ * App.jsx — Root component.
+ * Lenis removed — native CSS smooth-scroll is used instead.
+ * This restores normal mouse-wheel / touchpad scrolling behaviour.
  */
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLenis } from './hooks/useLenis';
 import LoadingScreen from './components/LoadingScreen';
 import CursorGlow from './components/CursorGlow';
 import Navbar from './components/Navbar';
@@ -16,7 +17,7 @@ import Experience from './sections/Experience';
 import Contact from './sections/Contact';
 import Chatbot from './components/Chatbot';
 
-/* Noise overlay SVG data-uri */
+/* Noise overlay — subtle film-grain texture */
 const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`;
 
 function NoiseOverlay() {
@@ -31,33 +32,24 @@ function NoiseOverlay() {
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [showApp, setShowApp] = useState(false);
-
-  // Initialise Lenis smooth scroll
-  useLenis();
 
   useEffect(() => {
-    // Minimum loading time of 1.4s for the intro animation to play
+    // Show loading screen for 1.4 s so the intro animation completes
     const timer = setTimeout(() => setLoading(false), 1400);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* Cursor glow */}
       <CursorGlow />
-
-      {/* Noise overlay */}
       <NoiseOverlay />
 
-      {/* Loading screen */}
+      {/* Animated loading screen */}
       <AnimatePresence>
-        {loading && (
-          <LoadingScreen key="loader" onComplete={() => setShowApp(true)} />
-        )}
+        {loading && <LoadingScreen key="loader" />}
       </AnimatePresence>
 
-      {/* Main app */}
+      {/* Main portfolio */}
       <AnimatePresence>
         {!loading && (
           <motion.div
@@ -70,25 +62,17 @@ export default function App() {
 
             <main>
               <Hero />
-
-              {/* Purple section divider */}
               <div className="section-divider" />
-
               <About />
               <div className="section-divider" />
-
               <Education />
               <div className="section-divider" />
-
               <Skills />
               <div className="section-divider" />
-
               <Projects />
               <div className="section-divider" />
-
               <Experience />
               <div className="section-divider" />
-
               <Contact />
             </main>
 
