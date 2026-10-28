@@ -1,0 +1,274 @@
+/* ══════════════════════════════════════════════════════════
+   Fonts — Modern trending choices:
+   • Outfit       → headings (clean, geometric, premium)
+   • Plus Jakarta Sans → UI labels, nav, chips (contemporary)
+   • DM Sans      → body copy (legible, modern, warm)
+   ══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   CSS custom properties
+───────────────────────────────────────── */
+:root {
+  --bg-base:       #06040e;
+  --bg-surface:    #0c0718;
+  --bg-card:       rgba(12, 7, 24, 0.65);
+  --purple:        #7c3aed;
+  --violet:        #a855f7;
+  --lilac:         #c084fc;
+  --text-primary:  #f0ecff;
+  --text-body:     #c4bdd8;
+  --text-muted:    #7c708f;
+
+  /* Font families */
+  --font-display: 'Outfit', sans-serif;
+  --font-ui:      'Plus Jakarta Sans', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* ─────────────────────────────────────────
+   Base / reset
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* Native smooth scroll as fallback (Lenis overrides this) */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Rich background — three-layer gradient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%,  rgba(124,58,237,0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 38% at 85% 85%,  rgba(168,85,247,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 10% 60%,  rgba(99,40,210,0.05)  0%, transparent 50%),
+    linear-gradient(180deg, #06040e 0%, #0c0718 45%, #06040e 100%);
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   Typography — font assignments
+───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Nav, chips, labels */
+.font-display { font-family: var(--font-display); }
+.font-ui      { font-family: var(--font-ui); }
+.font-body    { font-family: var(--font-body); }
+
+/* ─────────────────────────────────────────
+   Gradient text
+───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #e0c3fc 0%, #c084fc 30%, #a855f7 60%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle shimmer variant */
+.gradient-text-shimmer {
+  background: linear-gradient(90deg, #a855f7, #c084fc, #a855f7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─────────────────────────────────────────
+   Glassmorphism card — refined
+───────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle inner top-edge shine */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192,132,252,0.25), transparent);
+  border-radius: 100%;
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.32);
+  box-shadow: 0 4px 32px rgba(124, 58, 237, 0.12), 0 1px 0 rgba(192,132,252,0.1) inset;
+}
+
+/* ─────────────────────────────────────────
+   Radial gradient utility
+───────────────────────────────────────── */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* ─────────────────────────────────────────
+   Section divider
+───────────────────────────────────────── */
+.section-divider {
+  width: 90%;
+  max-width: 80rem;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(124,58,237,0.18) 20%,
+    rgba(192,132,252,0.22) 50%,
+    rgba(124,58,237,0.18) 80%,
+    transparent 100%
+  );
+}
+
+/* ─────────────────────────────────────────
+   Button base
+───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 28px rgba(124,58,237,0.55);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  background: transparent;
+  color: #c084fc;
+  border: 1px solid rgba(168,85,247,0.35);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  background: rgba(124,58,237,0.1);
+  border-color: rgba(168,85,247,0.6);
+  color: #e0c3fc;
+}
+
+/* ─────────────────────────────────────────
+   Skill chip
+───────────────────────────────────────── */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.22);
+  color: #c084fc;
+  transition: all 0.2s ease;
+}
+.skill-chip:hover {
+  background: rgba(124,58,237,0.18);
+  border-color: rgba(168,85,247,0.45);
+  color: #e0c3fc;
+}
+
+/* ─────────────────────────────────────────
+   Scrollbar (webkit)
+───────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--bg-base); }
+::-webkit-scrollbar-thumb  { background: rgba(124,58,237,0.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(168,85,247,0.55); }
+
+/* ─────────────────────────────────────────
+   Focus visible
+───────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(192,132,252,0.7);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ─────────────────────────────────────────
+   Animations
+───────────────────────────────────────── */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.65; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   Reduced motion
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
