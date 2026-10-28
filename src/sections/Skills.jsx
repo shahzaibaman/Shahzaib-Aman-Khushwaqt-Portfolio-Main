@@ -121,7 +121,7 @@ export default function Skills() {
                       <div className="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-700/30 flex items-center justify-center text-2xl">
                         {skill.icon}
                       </div>
-                      {skill.percentage != null && !openId || openId !== skill.id ? (
+                      {skill.percentage != null && (!openId || openId !== skill.id) ? (
                         <ProficiencyRing percentage={skill.percentage ?? 0} size={56} stroke={4} />
                       ) : null}
                     </div>

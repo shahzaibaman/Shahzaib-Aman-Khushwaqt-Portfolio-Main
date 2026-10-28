@@ -227,7 +227,7 @@ export const skills = [
     id: 'ai-prompt',
     title: 'AI Prompt Engineering',
     icon: '🤖',
-    percentage: null,
+    percentage: 68,
     summary: 'Effective AI tool use for productivity, research & creative work.',
     description:
       'Interested in prompt engineering and effective use of AI tools for productivity, problem-solving, and creative/technical work.',
@@ -403,7 +403,7 @@ export const projects = [
 export const experience = [
   {
     id: 'campus-coordinator',
-    title: 'Campus Coordinator',
+    title: 'Campus Coordinator BanoQabil Chitral',
     org: 'BanoQabil KP North',
     location: 'Chitral Campus, University of Chitral',
     period: 'Current',

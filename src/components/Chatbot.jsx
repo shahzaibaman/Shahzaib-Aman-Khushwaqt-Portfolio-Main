@@ -20,7 +20,7 @@ function localAnswer(question) {
 • 🎯 Digital Marketing & AI-Powered Marketing (90%)
 • 💻 Frontend Development — HTML, CSS, JS, Tailwind (80%)
 • 🚀 MERN Stack — currently learning (20%)
-• 🤖 AI Prompt Engineering
+• 🤖 AI Prompt Engineering (68%)
 • ⚙️ C++ & OOP (85%)`;
   }
 
@@ -72,7 +72,7 @@ Click any project card to explore details!`;
   // Experience
   if (q.includes('experience') || q.includes('work') || q.includes('job') || q.includes('coordinator') || q.includes('volunteer') || q.includes('ijt')) {
     return `Shahzaib's experience includes:
-🏫 Campus Coordinator — BanoQabil KP North, Chitral (current)
+🏫 Campus Coordinator BanoQabil Chitral — BanoQabil KP North (current)
 🤝 Volunteer — Banoqabil & Alkhidmat Foundation, 2 years
 🏛️ Social Media Manager & President — IJT, University of Chitral`;
   }
