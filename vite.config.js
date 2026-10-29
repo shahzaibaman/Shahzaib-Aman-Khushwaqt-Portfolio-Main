@@ -24,7 +24,7 @@ export default defineConfig(({ command }) => ({
   // ── GitHub Pages base path ──────────────────────────────────────────────
   // Default '/' works for:  username.github.io  OR  a custom domain
   // Change to '/repo-name/' if deploying to: username.github.io/repo-name/
-  base: process.env.VITE_BASE_URL ?? '/',
+  base:'/shahzaibaman/Shahzaib-Aman-Khushwaqt-Portfolio-Main',
 
   build: {
     // Increase the warning threshold (Three.js is inherently large)
