@@ -44,7 +44,7 @@ jobs:
         env:
           # Change '/my-portfolio/' to match YOUR repo name,
           # OR set this to '/' if you use a custom domain or username.github.io root.
-          VITE_BASE_URL: ${{ vars.VITE_BASE_URL || '/' }}
+          VITE_BASE_URL: '/shahzaibaman/Shahzaib-Aman-Khushwaqt-Portfolio-Main/'
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
